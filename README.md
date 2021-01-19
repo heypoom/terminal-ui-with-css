@@ -2,6 +2,8 @@
 
 ![Terminal UI Screenshot](./docs/screenshot.png)
 
+View the deployed site on [Netlify](https://css-terminal.netlify.app).
+
 ## Wait what?
 
 This is a midnight quick hack to build a dumb-looking terminal-like proof-of-concept with CSS, since I can't bring myself to sleep.
