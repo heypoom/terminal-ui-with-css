@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        box-sizing: border-box !important;
+      }
+
+      body {
+        margin: 0;
+        background: rgba(37, 39, 42, 1);
+        color: #efefef;
+        font-family: 'JetBrains Mono';
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .terminal-outer-container {
+        width: 100%;
+        max-width: 780px;
+        padding: 40px;
+      }
+
+      .terminal-inner-container {
+        background: rgba(45, 47, 50, 1);
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+
+        border-radius: 8px;
+      }
+
+      .terminal-content-container {
+        padding: 30px;
+        border-radius: 8px 8px 0px 0px;
+      }
+
+      .terminal-title-bar {
+        height: 34px;
+        background: rgba(37, 39, 42, 1);
+        border-radius: 8px 8px 0px 0px;
+
+        display: flex;
+        align-items: center;
+        padding: 0px 14px;
+      }
+
+      h1 {
+        margin: 0;
+        font-weight: 300;
+      }
+
+      .terminal-title-bar .title-btn {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-top: 2px;
+      }
+
+      .terminal-title-bar .title-btn:not(:first-of-type) {
+        margin-left: 8px;
+      }
+
+      .title-btn__red {
+        background: #e74c3c;
+      }
+
+      .title-btn__yellow {
+        background: #f1c40f;
+      }
+
+      .title-btn__green {
+        background: #26c840;
+      }
+
+      .title-btn:hover {
+        background: #22212c;
+      }
+
+      .terminal-content-text {
+        color: rgba(101, 244, 172, 1);
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="terminal-outer-container">
+      <div class="terminal-inner-container">
+        <div class="terminal-title-bar">
+          <div class="title-btn title-btn__red"></div>
+          <div class="title-btn title-btn__yellow"></div>
+          <div class="title-btn title-btn__green"></div>
+        </div>
+
+        <div class="terminal-content-container">
+          <div class="terminal-content-text">ls -lah</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
