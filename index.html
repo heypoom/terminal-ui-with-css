@@ -75,11 +75,6 @@
         position: relative;
       }
 
-      h1 {
-        margin: 0;
-        font-weight: 300;
-      }
-
       .terminal-title-actions {
         display: flex;
         align-items: center;
@@ -114,8 +109,19 @@
       }
 
       .terminal-content-text {
-        font-size: 28px;
-        line-height: 48px;
+        font-size: 18px;
+        line-height: 36px;
+        font-weight: 400;
+
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .terminal-content-text h1 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 32px;
+        font-weight: 500;
       }
 
       .terminal-mode-line-container {
@@ -164,8 +170,9 @@
       }
 
       .backdrop-upper-half {
-        animation: animate-half 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-        will-change: height;
+        box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.46);
+        animation: animate-half 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        will-change: height box-shadow;
         background: #191a22;
         height: 30%;
         width: 100%;
@@ -177,6 +184,18 @@
       .terminal-title-text {
         width: 100%;
         text-align: center;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      .blue {
+        color: #64dff3;
+      }
+
+      .yellow {
+        color: #d4dd83;
       }
     </style>
   </head>
@@ -193,19 +212,30 @@
               <div class="title-btn title-btn__green"></div>
             </div>
 
-            <div class="terminal-title-text">Hello, I'm Poom!</div>
+            <div class="terminal-title-text">The <span class="blue">Principles</span> of Quick Hacks</div>
           </div>
 
           <div class="terminal-content-container">
             <div class="terminal-content-text">
-              <div># Embrace Stupid Hacks</div>
+              <p>$> <strong>cat</strong> <span class="yellow">~</span><span class="blue">/Wiki/ForTheLoveOfQuickHacks.md</span></p>
+
+              <h1>## The <span class="blue">Principles</span> of Quick Hacks</h1>
+
+              <p>
+                <ol>
+                  <li>Embrace Quick, Small and Stupid Hacks.</li>
+                  <li>The MVP should be doable within two hours.</li>
+                  <li>You're always learning when you're hacking.</li>
+                  <li>Hack in Public, so you can Learn in Public.</li>
+                </ol>
+              </p>
             </div>
           </div>
 
           <div class="terminal-mode-line-container">
-            <div class="terminal-mode-indicator">INTRO</div>
+            <div class="terminal-mode-indicator">NORMAL</div>
             <div class="mode-indicator-triangle"></div>
-            <div class="terminal-file-display">Poom.md</div>
+            <div class="terminal-file-display">ForTheLoveOfQuickHacks.md</div>
           </div>
         </div>
       </div>
