@@ -117,18 +117,22 @@
 
       .terminal-content-text {
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: center;
         height: 100%;
 
-        font-size: 18px;
-        line-height: 36px;
+        font-size: 22px;
+        line-height: 22px;
         font-weight: 400;
 
         width: 100%;
         margin: 0 auto;
         max-width: 700px;
+      }
+
+      .terminal-content-text p {
+        margin: 10px 0px;
       }
 
       .terminal-content-text h1 {
@@ -218,6 +222,12 @@
         text-align: center;
         margin-top: 50px;
       }
+
+      .content-name {
+        text-align: center;
+        width: 100%;
+        margin: 20px 0px 40px 0px;
+      }
     </style>
   </head>
   <body>
@@ -238,17 +248,28 @@
 
           <div class="terminal-content-container">
             <div class="terminal-content-text">
+              <div>
+                $> <strong>whois</strong> <span class="blue">@heypoom</span>
+              </div>
+
               <h1 class="content-heading">
-                Quick Hacks. TypeScript. Terminal.
+                Hacks. TypeScript. Terminal.
                 <span class="yellow">Poom.</span>
               </h1>
+
+              <div class="content-name">
+                <p>Phoomparin Mano</p>
+                <small>@heypoom</small>
+              </div>
+
+              <p>I'm Poom. You know me.</p>
             </div>
           </div>
 
           <div class="terminal-mode-line-container">
             <div class="terminal-mode-indicator">INTRO</div>
             <div class="mode-indicator-triangle"></div>
-            <div class="terminal-file-display">ForTheLoveOfQuickHacks.md</div>
+            <div class="terminal-file-display">Poom.md</div>
           </div>
         </div>
       </div>
