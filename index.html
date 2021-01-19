@@ -9,46 +9,70 @@
         box-sizing: border-box !important;
       }
 
+      :root {
+        --roundness: 6px;
+        --modeline-backdrop-color: rgba(25, 26, 34, 1);
+      }
+
       body {
         margin: 0;
-        background: #efefef;
+      }
+
+      .root-page-container {
         color: #efefef;
+
+        background: rgb(93, 97, 247);
+
+        background: linear-gradient(
+          34deg,
+          rgba(93, 97, 247, 1) 0%,
+          rgba(236, 154, 229, 1) 100%
+        );
+
         font-family: 'JetBrains Mono';
+        font-weight: 400;
         min-height: 100vh;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        position: relative;
       }
 
       .terminal-outer-container {
         width: 100%;
-        max-width: 780px;
+        max-width: 3000px;
         padding: 40px;
+
+        position: absolute;
       }
 
       .terminal-inner-container {
         background: #22212c;
-        box-shadow: 1px 2px 8px rgba(34, 33, 44, 0.3);
+        box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.46);
         width: 100%;
 
-        border-radius: 8px;
+        border-radius: var(--roundness);
       }
 
       .terminal-content-container {
         padding: 30px;
-        border-radius: 8px 8px 0px 0px;
+        min-height: 80vh;
+        border-radius: var(--roundness) var(--roundness) 0px 0px;
       }
 
       .terminal-title-bar {
-        height: 34px;
+        height: 40px;
         background: #191a22;
-        border-radius: 8px 8px 0px 0px;
+        border-radius: var(--roundness) var(--roundness) 0px 0px;
 
         display: flex;
         align-items: center;
         padding: 0px 14px;
+
+        position: relative;
       }
 
       h1 {
@@ -56,11 +80,17 @@
         font-weight: 300;
       }
 
-      .terminal-title-bar .title-btn {
-        width: 12px;
-        height: 12px;
+      .terminal-title-actions {
+        display: flex;
+        align-items: center;
+
+        position: absolute;
+      }
+
+      .terminal-title-actions .title-btn {
+        width: 14px;
+        height: 14px;
         border-radius: 50%;
-        margin-top: 2px;
       }
 
       .terminal-title-bar .title-btn:not(:first-of-type) {
@@ -68,15 +98,15 @@
       }
 
       .title-btn__red {
-        background: #e74c3c;
+        background: rgba(255, 91, 82, 1);
       }
 
       .title-btn__yellow {
-        background: #f1c40f;
+        background: rgba(230, 192, 41, 1);
       }
 
       .title-btn__green {
-        background: #26c840;
+        background: rgba(83, 195, 43, 1);
       }
 
       .title-btn:hover {
@@ -85,20 +115,98 @@
 
       .terminal-content-text {
         font-size: 28px;
+        line-height: 48px;
+      }
+
+      .terminal-mode-line-container {
+        display: flex;
+        align-items: center;
+
+        position: relative;
+      }
+
+      .terminal-mode-indicator {
+        color: rgba(34, 33, 44, 1);
+        background: rgba(198, 141, 255, 1);
+        padding: 5px 10px;
+        border-radius: 0px 0px 0px var(--roundness);
+        font-weight: 400;
+      }
+
+      .mode-indicator-triangle {
+        width: 0;
+        height: 0;
+        border-top: 15.5px solid transparent;
+        border-bottom: 15.5px solid transparent;
+
+        border-left: 15.5px solid rgba(198, 141, 255, 1);
+        background: var(--modeline-backdrop-color);
+
+        margin-left: -6px;
+      }
+
+      .terminal-file-display {
+        background: var(--modeline-backdrop-color);
+        padding: 5px 10px;
+        width: 100%;
+
+        border-radius: 0px 0px var(--roundness) 0px;
+      }
+
+      @keyframes animate-half {
+        from {
+          height: 100%;
+        }
+
+        to {
+          height: 30%;
+        }
+      }
+
+      .backdrop-upper-half {
+        animation: animate-half 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        will-change: height;
+        background: #191a22;
+        height: 30%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 0;
+      }
+
+      .terminal-title-text {
+        width: 100%;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div class="terminal-outer-container">
-      <div class="terminal-inner-container">
-        <div class="terminal-title-bar">
-          <div class="title-btn title-btn__red"></div>
-          <div class="title-btn title-btn__yellow"></div>
-          <div class="title-btn title-btn__green"></div>
-        </div>
+    <div class="root-page-container">
+      <div class="backdrop-upper-half"></div>
 
-        <div class="terminal-content-container">
-          <div class="terminal-content-text">ls -lah</div>
+      <div class="terminal-outer-container">
+        <div class="terminal-inner-container">
+          <div class="terminal-title-bar">
+            <div class="terminal-title-actions">
+              <div class="title-btn title-btn__red"></div>
+              <div class="title-btn title-btn__yellow"></div>
+              <div class="title-btn title-btn__green"></div>
+            </div>
+
+            <div class="terminal-title-text">Hello, I'm Poom!</div>
+          </div>
+
+          <div class="terminal-content-container">
+            <div class="terminal-content-text">
+              <div># Embrace Stupid Hacks</div>
+            </div>
+          </div>
+
+          <div class="terminal-mode-line-container">
+            <div class="terminal-mode-indicator">INTRO</div>
+            <div class="mode-indicator-triangle"></div>
+            <div class="terminal-file-display">Poom.md</div>
+          </div>
         </div>
       </div>
     </div>
