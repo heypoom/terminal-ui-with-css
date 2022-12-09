@@ -64,6 +64,7 @@
       .terminal-content-container {
         padding: 30px;
         min-height: 80vh;
+            overflow-y: scroll;
         border-radius: var(--roundness) var(--roundness) 0px 0px;
       }
 
@@ -201,6 +202,10 @@
       .yellow {
         color: #d4dd83;
       }
+      pre{
+        white-space:unset;
+      }
+      
     </style>
   </head>
   <body>
@@ -208,7 +213,7 @@
       <div class="backdrop-upper-half"></div>
 
       <div class="terminal-outer-container">
-        <div class="terminal-inner-container">
+        <div class="terminal-inner-container" id="terminal">
           <div class="terminal-title-bar">
             <div class="terminal-title-actions">
               <div class="title-btn title-btn__red"></div>
@@ -220,29 +225,43 @@
           </div>
 
           <div class="terminal-content-container">
-            <div class="terminal-content-text">
-              <p>$> <strong>cat</strong> <span class="yellow">~</span><span class="blue">/Wiki/ForTheLoveOfQuickHacks.md</span></p>
-
-              <h1>## The <span class="blue">Principles</span> of Quick Hacks</h1>
-
-              <p>
-                <ol>
-                  <li>Embrace Quick, Small and Stupid Hacks.</li>
-                  <li>The MVP should be doable within two hours.</li>
-                  <li>You're always learning when you're hacking.</li>
-                  <li>Hack in Public, so you can Learn in Public.</li>
-                </ol>
-              </p>
+            <div class="terminal-content-text termino-console">
+            
             </div>
           </div>
 
           <div class="terminal-mode-line-container">
             <div class="terminal-mode-indicator">NORMAL</div>
             <div class="mode-indicator-triangle"></div>
-            <div class="terminal-file-display">ForTheLoveOfQuickHacks.md</div>
+            <input class="terminal-file-display termino-input" placeholder="ForTheLoveOfQuickHacks.md - Type Something Here!"></input>
           </div>
         </div>
       </div>
     </div>
   </body>
-</html>
+
+  <script type="module">
+        import {Termino} from 'https://cdn.jsdelivr.net/gh/MarketingPipeline/Termino.js@v1.0.0/dist/termino.min.js';
+        let term= Termino(document.getElementById("terminal"))
+        term.output(`<p>$> <strong>cat</strong> <span class="yellow">~</span><span class="blue">/Wiki/ForTheLoveOfQuickHacks.md</span></p>
+
+              <h1>## The <span class="blue">Principles</span> of Quick Hacks</h1>
+
+              <p>
+                <ol>
+               `)
+    await term.delay(1000)
+    term.output(` <li>Embrace Quick, Small and Stupid Hacks.</li>`)
+    await term.delay(1000)
+    term.output(`<li>The MVP should be doable within two hours.</li>`)
+    await term.delay(1000)
+    term.output(`<li>You're always learning when you're hacking.</li>`)
+    await term.delay(1000)
+    term.output(`<li>Hack in Public, so you can Learn in Public.</li></ol>`)
+    
+    
+        term.output(`ps; A special thanks to <a href="https://github.com/MarketingPipeline">@MarketingPipeline</a> on GitHub for adding Termino.js to this!`)
+    
+    
+      </script>
+</html> 
